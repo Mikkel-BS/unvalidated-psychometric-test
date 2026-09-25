@@ -24,6 +24,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Check JavaScript and scoring
+        run: |
+          node --check questions.js
+          node --check scoring.js
+          node --check app.js
+          node --test tests/*.test.cjs
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
 

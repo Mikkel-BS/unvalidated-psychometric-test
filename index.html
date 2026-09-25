@@ -6,7 +6,7 @@
   <meta name="description" content="An original, deliberately unvalidated personality questionnaire made for fun.">
   <meta name="color-scheme" content="light dark">
   <title>Unvalidated Personality Test</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=0.2.0">
 </head>
 <body>
   <main class="shell">
@@ -20,7 +20,7 @@
 
     <section id="intro" class="panel hero">
       <p class="eyebrow">Suspiciously serious charts. Scientifically unserious test.</p>
-      <h1>A personality questionnaire that knows exactly what it is.</h1>
+      <h1 tabindex="-1">A personality questionnaire that knows exactly what it is.</h1>
       <p class="lede">Answer 72 original statements on a five-point scale. You’ll get a profile across 12 traits, with no types, no forced choices, and no claim that the numbers are validated.</p>
 
       <div class="facts" aria-label="Test details">
@@ -34,19 +34,19 @@
       </div>
 
       <button id="start-button" class="primary" type="button">Start the test</button>
-      <p class="privacy-note">Your answers stay in your browser. Nothing is sent anywhere.</p>
+      <p class="privacy-note">Your answers stay in this tab and are cleared on reload. The site does not submit your answers.</p>
     </section>
 
     <section id="questionnaire" class="panel hidden" aria-labelledby="question-heading">
       <div class="questionnaire-topline">
         <div>
           <p id="section-label" class="eyebrow">Section</p>
-          <h2 id="question-heading">How much do you agree?</h2>
+          <h2 id="question-heading" tabindex="-1" aria-describedby="section-label">How much do you agree?</h2>
         </div>
-        <div class="progress-copy"><span id="answered-count">0</span> / 72</div>
+        <div class="progress-copy"><span id="answered-count">0</span> / 72 answered</div>
       </div>
       <div class="progress-track" aria-hidden="true"><div id="progress-bar" class="progress-bar"></div></div>
-      <p class="instruction">Answer based on how you generally are, not how you think you ought to be.</p>
+      <p class="instruction">Think about your usual behaviour over the past few months, across everyday situations. Choose what generally fits, rather than an ideal version of yourself. Use the middle option when you neither agree nor disagree; if it depends on the situation, choose the closest overall fit.</p>
 
       <form id="question-form" novalidate>
         <div id="question-list" class="question-list"></div>
@@ -61,7 +61,7 @@
     <section id="results" class="hidden" aria-labelledby="results-title">
       <div class="panel results-intro">
         <p class="eyebrow">Your entirely unvalidated profile</p>
-        <h1 id="results-title">Twelve sliders, no destiny.</h1>
+        <h1 id="results-title" tabindex="-1">Twelve sliders, no destiny.</h1>
         <p class="lede">These scores show where your answers landed on this questionnaire’s own scales. They are <strong>not percentiles</strong> or comparisons with a population. Read each scale in its own terms: a higher number is not automatically better.</p>
         <div id="profile-summary" class="profile-summary"></div>
       </div>
@@ -71,12 +71,15 @@
       <div class="panel methodology">
         <h2>How the scoring works</h2>
         <p>Each trait has six statements. Responses are scored 1–5; reverse-keyed statements are flipped. The mean is then rescaled to 0–100. A score of 50 therefore means the midpoint of the response scale, not “average compared with people.” Interpretive ranges below 40, 40–60, and above 60 are editorial conveniences, not empirically established cutoffs. Six answers can hide a mix of responses, so treat each paragraph as a prompt for reflection rather than a finding.</p>
-        <p>Every question and scale description in this project is original. The model borrows only broad, non-proprietary ideas from trait psychology.</p>
+        <p>A one-step change to one answer moves its trait score by about four points. Small differences should not be treated as meaningful distinctions. The twelve themes may overlap; they have not been shown to be independent factors.</p>
+        <p>Every question and scale description in this project is original. The model borrows only broad, non-proprietary ideas from trait psychology. Questionnaire version 0.2.0.</p>
         <div class="result-actions">
           <button id="copy-button" class="secondary" type="button">Copy text summary</button>
-          <button id="restart-button" class="secondary" type="button">Take it again</button>
+          <button id="review-button" class="secondary" type="button">Review or edit answers</button>
+          <button id="restart-button" class="secondary" type="button">Start over (clear answers)</button>
         </div>
         <p id="copy-status" class="privacy-note" role="status"></p>
+        <textarea id="manual-summary" class="manual-summary hidden" readonly aria-label="Results summary for manual copying" rows="12"></textarea>
       </div>
     </section>
   </main>
@@ -85,7 +88,9 @@
     <p>Made for curiosity, conversation, and mild over-analysis.</p>
   </footer>
 
-  <script src="questions.js"></script>
-  <script src="app.js"></script>
+  <noscript><p class="notice">This questionnaire needs JavaScript enabled to display questions and calculate results.</p></noscript>
+  <script src="questions.js?v=0.2.0"></script>
+  <script src="scoring.js?v=0.2.0"></script>
+  <script src="app.js?v=0.2.0"></script>
 </body>
 </html>
