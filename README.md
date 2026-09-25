@@ -28,7 +28,7 @@ Answers exist only in memory in the current tab and are cleared on reload. Copyi
 
 ## Checks
 
-Run `node --test tests/*.test.cjs` with Node.js 18 or newer. The suite checks all 15,625 answer combinations for one six-item scale, both score endpoints, reversal direction for every item, isolated trait changes, range boundaries, incomplete input, uniform answers, and item-order independence. These are software checks, not psychometric validation. The Pages workflow runs the tests and JavaScript syntax checks before deployment.
+Run `node --test tests/*.test.cjs` with Node.js 18 or newer. The suite checks all 15,625 answer combinations for one six-item scale, both score endpoints, reversal direction for every item, isolated trait changes, range boundaries, incomplete input, uniform answers, item-order independence, result wording, and clipboard success/failure handling. These are software checks, not psychometric validation. The Pages workflow runs the tests and JavaScript syntax checks before deployment. See [QA.md](QA.md) for the review findings and testing limits.
 
 ## Questionnaire version 0.2.0
 
