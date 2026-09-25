@@ -21,4 +21,4 @@ Open `index.html` directly, or serve the directory with any static web server.
 
 ## GitHub Pages
 
-The workflow in `.github/workflows/pages.yml` deploys the repository as a static GitHub Pages site whenever `main` changes. It can also be run manually from the Actions tab.
+The workflow in `.github/workflows/pages.yml` deploys the repository as a static GitHub Pages site whenever `main` changes. The deployment uses GitHub Actions and the official Pages actions. It can also be run manually from the Actions tab.
