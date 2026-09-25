@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="An original, deliberately unvalidated personality questionnaire made for fun.">
+  <meta name="color-scheme" content="light dark">
+  <title>Unvalidated Personality Test</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="site-header">
+      <a class="brand" href="./" aria-label="Unvalidated Personality Test home">
+        <span class="brand-mark" aria-hidden="true">UP</span>
+        <span>Unvalidated Personality Test</span>
+      </a>
+      <span class="warning-pill">for entertainment only</span>
+    </header>
+
+    <section id="intro" class="panel hero">
+      <p class="eyebrow">Suspiciously serious charts. Scientifically unserious test.</p>
+      <h1>A personality questionnaire that knows exactly what it is.</h1>
+      <p class="lede">Answer 72 original statements on a five-point scale. You’ll get a profile across 12 traits, with no types, no forced choices, and no claim that the numbers are validated.</p>
+
+      <div class="facts" aria-label="Test details">
+        <div><strong>72</strong><span>statements</span></div>
+        <div><strong>12</strong><span>traits</span></div>
+        <div><strong>~8 min</strong><span>at normal speed</span></div>
+      </div>
+
+      <div class="notice">
+        <strong>Important:</strong> This is a game, not a psychological instrument. It has no normative sample, reliability study, validity evidence, diagnostic purpose, or hiring use.
+      </div>
+
+      <button id="start-button" class="primary" type="button">Start the test</button>
+      <p class="privacy-note">Your answers stay in your browser. Nothing is sent anywhere.</p>
+    </section>
+
+    <section id="questionnaire" class="panel hidden" aria-labelledby="question-heading">
+      <div class="questionnaire-topline">
+        <div>
+          <p id="section-label" class="eyebrow">Section</p>
+          <h2 id="question-heading">How much do you agree?</h2>
+        </div>
+        <div class="progress-copy"><span id="answered-count">0</span> / 72</div>
+      </div>
+      <div class="progress-track" aria-hidden="true"><div id="progress-bar" class="progress-bar"></div></div>
+      <p class="instruction">Answer based on how you generally are, not how you think you ought to be.</p>
+
+      <form id="question-form" novalidate>
+        <div id="question-list" class="question-list"></div>
+        <p id="validation-message" class="validation" role="alert"></p>
+        <div class="form-actions">
+          <button id="back-button" class="secondary" type="button">Back</button>
+          <button id="next-button" class="primary" type="submit">Next</button>
+        </div>
+      </form>
+    </section>
+
+    <section id="results" class="hidden" aria-labelledby="results-title">
+      <div class="panel results-intro">
+        <p class="eyebrow">Your entirely unvalidated profile</p>
+        <h1 id="results-title">Twelve sliders, no destiny.</h1>
+        <p class="lede">These scores show where your answers landed on this questionnaire’s own scales. They are <strong>not percentiles</strong> and are not comparisons with a population.</p>
+        <div id="profile-summary" class="profile-summary"></div>
+      </div>
+
+      <div id="result-groups" class="result-groups"></div>
+
+      <div class="panel methodology">
+        <h2>How the scoring works</h2>
+        <p>Each trait has six statements. Responses are scored 1–5; reverse-keyed statements are flipped. The mean is then rescaled to 0–100. A score of 50 therefore means the midpoint of the response scale, not “average compared with people.”</p>
+        <p>Every question and scale description in this project is original. The model borrows only broad, non-proprietary ideas from trait psychology.</p>
+        <div class="result-actions">
+          <button id="copy-button" class="secondary" type="button">Copy text summary</button>
+          <button id="restart-button" class="secondary" type="button">Take it again</button>
+        </div>
+        <p id="copy-status" class="privacy-note" role="status"></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Made for curiosity, conversation, and mild over-analysis.</p>
+  </footer>
+
+  <script src="questions.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
