@@ -52,3 +52,7 @@ h1,h2,h3 { line-height:1.08; letter-spacing:-.03em; } h1 { max-width:800px; marg
   :root { --bg:#151918; --panel:#1c211f; --text:#edf1ee; --muted:#aeb8b3; --border:#38413d; --accent:#78aa9a; --accent-text:#12201b; --warning:#e1c297; --warning-bg:#342b22; --shadow:0 18px 50px rgba(0,0,0,.18); }
   .notice { color:#e5caa7; } .progress-track,.trait-track { background:#303734; }
 }
+.trait-interpretation { margin-top:16px; padding:17px 20px; border-radius:14px; background:rgba(84,126,110,.08); }
+.trait-interpretation h4 { margin:0 0 6px; font-size:1rem; }
+.trait-interpretation p { margin:7px 0 0; color:var(--text); line-height:1.5; }
+.trait-interpretation .reflection { margin-top:13px; color:var(--muted); }

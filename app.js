@@ -115,11 +115,15 @@
   }
 
   function band(score) {
-    if (score <= 24) return 'Very low expression';
-    if (score <= 39) return 'Low expression';
-    if (score <= 60) return 'Mid-range';
-    if (score <= 75) return 'High expression';
-    return 'Very high expression';
+    if (score < 40) return 'Toward first end';
+    if (score <= 60) return 'Near the scale midpoint';
+    return 'Toward second end';
+  }
+
+  function scoreContext(score, trait, interpretation) {
+    if (score < 40) return { heading: `Leaning toward ${trait.low.toLowerCase()}`, reading: interpretation.low, tradeoff: interpretation.lowTradeoff };
+    if (score <= 60) return { heading: 'A mixed response pattern', reading: interpretation.middle, tradeoff: 'This midpoint may reflect a genuine mix, context-dependent answers, or uncertainty about these items.' };
+    return { heading: `Leaning toward ${trait.high.toLowerCase()}`, reading: interpretation.high, tradeoff: interpretation.highTradeoff };
   }
 
   function renderResults(scores) {
@@ -128,8 +132,8 @@
     const lowest = ranked.slice(-3).reverse().map(([key]) => model.traits[key].name);
 
     profileSummary.innerHTML = `
-      <div><span>Most strongly expressed</span><strong>${highest.join(' · ')}</strong></div>
-      <div><span>Least strongly expressed</span><strong>${lowest.join(' · ')}</strong></div>
+      <div><span>Highest scores in your answers</span><strong>${highest.join(' · ')}</strong></div>
+      <div><span>Lowest scores in your answers</span><strong>${lowest.join(' · ')}</strong></div>
     `;
 
     const groups = ['People', 'Execution', 'Thinking', 'Temperament'];
@@ -148,6 +152,8 @@
         .filter(([, trait]) => trait.group === groupName)
         .forEach(([key, trait]) => {
           const score = scores[key];
+          const detail = model.interpretations[key];
+          const context = scoreContext(score, trait, detail);
           const row = document.createElement('article');
           row.className = 'trait-result';
           row.innerHTML = `
@@ -160,7 +166,12 @@
             </div>
             <div class="trait-scale-labels"><span>${trait.low}</span><span>${trait.high}</span></div>
             <div class="trait-track" aria-label="${trait.name}: ${score} out of 100"><span style="width:${score}%"></span></div>
-            <p class="band">${band(score)}</p>
+            <div class="trait-interpretation">
+              <h4>${context.heading}</h4>
+              <p>${context.reading}</p>
+              <p><strong>A possible tradeoff:</strong> ${context.tradeoff}</p>
+              <p class="reflection"><strong>Conversation starter:</strong> ${detail.prompt}</p>
+            </div>
           `;
           section.appendChild(row);
         });
@@ -176,7 +187,7 @@
       ''
     ];
     Object.entries(model.traits).forEach(([key, trait]) => {
-      lines.push(`${trait.name}: ${scores[key]}/100 (${band(scores[key])})`);
+      lines.push(`${trait.name}: ${scores[key]}/100 — ${scoreContext(scores[key], trait, model.interpretations[key]).heading}`);
     });
     lines.push('', window.location.href.split('#')[0]);
     return lines.join('\n');
