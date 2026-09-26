@@ -6,7 +6,7 @@
   <meta name="description" content="An original, deliberately unvalidated personality questionnaire made for fun.">
   <meta name="color-scheme" content="light dark">
   <title>Unvalidated Personality Test</title>
-  <link rel="stylesheet" href="styles.css?v=0.3.0">
+  <link rel="stylesheet" href="styles.css?v=0.3.1">
 </head>
 <body>
   <main class="shell">
@@ -61,7 +61,7 @@
     <section id="results" class="hidden" aria-labelledby="results-title">
       <div class="panel results-intro">
         <p class="eyebrow">Your entirely unvalidated profile</p>
-        <h1 id="results-title" tabindex="-1">Twelve sliders, no destiny.</h1>
+        <h1 id="results-title" tabindex="-1">Twelve themes, no destiny.</h1>
         <p class="lede">These scores show where your answers landed on this questionnaire’s own scales. They are <strong>not percentiles</strong> or comparisons with a population. Read each scale in its own terms: a higher number is not automatically better.</p>
         <div id="profile-summary" class="profile-summary"></div>
       </div>
@@ -72,7 +72,7 @@
         <h2>How the scoring works</h2>
         <p>Each trait has six statements. Responses are scored 1–5; reverse-keyed statements are flipped. The mean is then rescaled to 0–100. A score of 50 therefore means the midpoint of the response scale, not “average compared with people.” Interpretive ranges below 40, 40–60, and above 60 are editorial conveniences, not empirically established cutoffs. Six answers can hide a mix of responses, so treat each paragraph as a prompt for reflection rather than a finding.</p>
         <p>Each scale has only 25 possible scores. A one-step change to one answer moves its unrounded score by about 4.17 points; this describes score steps, not measurement precision. Crossing an editorial cutoff can change the label without establishing a psychological distinction. Small differences should not be treated as meaningful distinctions. The twelve themes may overlap; they have not been shown to be independent factors. The four display groups organise the page, not established psychological factors. Reflection questions suggest topics to discuss; they are not additional findings about you. Scores from different questionnaire versions should not be treated as directly comparable.</p>
-        <p>Every question and scale description in this project is original. The model borrows only broad, non-proprietary ideas from trait psychology. Questionnaire version 0.3.0.</p>
+        <p>Every question and scale description in this project is original. The model borrows only broad, non-proprietary ideas from trait psychology. Questionnaire version 0.3.1.</p>
         <div class="result-actions">
           <button id="copy-button" class="secondary" type="button">Copy text summary</button>
           <button id="review-button" class="secondary" type="button">Review or edit answers</button>
@@ -89,8 +89,8 @@
   </footer>
 
   <noscript><p class="notice">This questionnaire needs JavaScript enabled to display questions and calculate results.</p></noscript>
-  <script src="questions.js?v=0.3.0"></script>
-  <script src="scoring.js?v=0.3.0"></script>
-  <script src="app.js?v=0.3.0"></script>
+  <script src="questions.js?v=0.3.1"></script>
+  <script src="scoring.js?v=0.3.1"></script>
+  <script src="app.js?v=0.3.1"></script>
 </body>
 </html>

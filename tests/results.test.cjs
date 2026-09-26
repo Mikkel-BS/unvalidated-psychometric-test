@@ -26,7 +26,7 @@ function setup(clipboard) {
   });
   for (const file of ['questions.js', 'scoring.js']) vm.runInContext(fs.readFileSync(path.join(root, file),'utf8'), context);
   const source = fs.readFileSync(path.join(root, 'app.js'),'utf8');
-  vm.runInContext(source.replace(/\}\)\(\);\s*$/, 'window.__test = { answers, scoreContext, makeSummaryText, copySummary, calculateScores }; })();'), context);
+  vm.runInContext(source.replace(/\}\)\(\);\s*$/, 'window.__test = { answers, scoreContext, illustrativeAnswers, makeSummaryText, copySummary, calculateScores }; })();'), context);
   const model = context.window.TEST_MODEL;
   const app = context.window.__test;
   for (const item of model.items) app.answers.set(item.id, 3);
@@ -50,6 +50,17 @@ test('both endpoint readings and a genuine mixed midpoint use the correct text',
   for (const item of model.items) app.answers.set(item.id,3);
   app.answers.set(1,1); app.answers.set(13,1);
   assert.equal(app.scoreContext('socialEnergy',50).heading,'Near the scale midpoint');
+});
+
+test('fuller take can show a response pulling toward each end of a mixed scale', () => {
+  const { app } = setup();
+  app.answers.set(1, 5);  // Social Energy, forward-keyed
+  app.answers.set(13, 5); // Social Energy, reverse-keyed
+  const examples = app.illustrativeAnswers('socialEnergy').map(({ item, raw, direction }) => ({ id: item.id, raw, direction }));
+  assert.deepEqual(JSON.parse(JSON.stringify(examples)), [
+    { id: 1, raw: 5, direction: 2 },
+    { id: 13, raw: 5, direction: -2 }
+  ]);
 });
 
 test('summary includes all traits, version, caveat, and a clean URL', () => {

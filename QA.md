@@ -44,3 +44,9 @@ Run the automated checks with `node --test tests/*.test.cjs`.
 Applied the academic review's six candidate rewrites and related construct/interpretation changes: 23 items revised in total. See the implementation addendum in ACADEMIC_REVIEW.md for exact item IDs and scope. Checked each revised item's scoring direction against its narrowed definition; all scales retain six items and three reversed items.
 
 The existing 14 automated checks pass, including all 15,625 six-response combinations, reversal direction for every item, midpoint/uniform-answer handling, endpoint readings, summary versioning, and clipboard outcomes. JavaScript syntax checks pass. Version and asset URLs are updated to 0.3.0. These checks verify implementation, not the psychological quality of the revised questions. No new respondent study or full browser/accessibility pass was performed for this wording update.
+
+## Version 0.3.1 result-copy check — 26 September 2026
+
+All twelve scales now have distinct low, middle, and high fuller readings, tucked into expandable sections to keep the results scannable. The two illustrative answers in each expansion are selected from non-neutral responses by keyed distance from the midpoint; where both directions exist, one of each is shown. They are examples, not a claim that two answers alone determine the score. The six-answer disclosure remains the complete source. Uniform and all-neutral response patterns do not receive a directional fuller reading. The results heading calls the display themes rather than interactive sliders.
+
+Automated checks cover presence of all 36 fuller readings and mixed-direction answer selection, alongside the earlier scoring and result-copy suite. This is editorial enrichment for a game, not new validity evidence.

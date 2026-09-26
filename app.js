@@ -119,6 +119,21 @@
     return { heading: trait[range], reading: interpretation[range], noteLabel: 'Reflection, not a measured finding', tradeoff: interpretation[`${range}Tradeoff`] };
   }
 
+  function illustrativeAnswers(key) {
+    const candidates = model.items.filter(item => item.trait === key).map(item => {
+      const raw = answers.get(item.id);
+      const keyed = item.reverse ? 6 - raw : raw;
+      return { item, raw, direction: keyed - 3 };
+    }).filter(entry => entry.direction !== 0);
+    const strongest = direction => candidates
+      .filter(entry => Math.sign(entry.direction) === direction)
+      .sort((a, b) => Math.abs(b.direction) - Math.abs(a.direction))[0];
+    const positive = strongest(1);
+    const negative = strongest(-1);
+    if (positive && negative) return [positive, negative];
+    return candidates.sort((a, b) => Math.abs(b.direction) - Math.abs(a.direction)).slice(0, 2);
+  }
+
   function renderResults(scores) {
     copyStatus.textContent = '';
     manualSummary.classList.add('hidden');
@@ -171,9 +186,46 @@
               <h4>${context.heading}</h4>
               <p>${context.reading}</p>
               <p><strong>${context.noteLabel}:</strong> ${context.tradeoff}</p>
-              <p class="reflection"><strong>Conversation starter:</strong> ${detail.prompt}</p>
             </div>
           `;
+          const pattern = scoring.responsePattern(model, answers, key);
+          if (!pattern.allNeutral && !pattern.sameResponse) {
+            const closer = document.createElement('details');
+            closer.className = 'closer-read';
+            const closerSummary = document.createElement('summary');
+            closerSummary.textContent = 'Read a fuller take';
+            const narrative = document.createElement('p');
+            narrative.textContent = model.deeperReadings[key][scoring.range(score)];
+            const question = document.createElement('p');
+            question.className = 'reflection';
+            question.textContent = `For conversation: ${detail.prompt}`;
+            closer.append(closerSummary, narrative, question);
+
+            const examples = illustrativeAnswers(key);
+            if (examples.length) {
+              const lead = document.createElement('p');
+              lead.className = 'evidence-lead';
+              lead.textContent = 'Two answers that moved this score:';
+              const list = document.createElement('ul');
+              list.className = 'answer-highlights';
+              examples.forEach(({ item, raw }) => {
+                const li = document.createElement('li');
+                const label = model.responseScale.find(option => option.value === raw).label;
+                li.textContent = `${label} — “${item.text}”`;
+                list.appendChild(li);
+              });
+              const note = document.createElement('p');
+              note.className = 'evidence-note';
+              note.textContent = 'These are examples; open all six answers below for the whole picture.';
+              closer.append(lead, list, note);
+            }
+            row.querySelector('.trait-interpretation').appendChild(closer);
+          } else {
+            const question = document.createElement('p');
+            question.className = 'reflection';
+            question.textContent = `For conversation: ${detail.prompt}`;
+            row.querySelector('.trait-interpretation').appendChild(question);
+          }
           const evidence = document.createElement('details');
           evidence.className = 'answer-review';
           const summary = document.createElement('summary');

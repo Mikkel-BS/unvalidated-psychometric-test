@@ -1,6 +1,6 @@
 window.TEST_MODEL = {
   title: "Unvalidated Personality Test",
-  version: "0.3.0",
+  version: "0.3.1",
   responseScale: [
     { value: 1, label: "Strongly disagree" },
     { value: 2, label: "Disagree" },
@@ -35,6 +35,68 @@ window.TEST_MODEL = {
     imagination: {"low":"You report less interest in imaginary scenarios and unusual possibilities.","middle":"Your answers average near the midpoint on this scale. The score alone does not explain why.","high":"You may often explore unusual or speculative possibilities for their own sake.","lowTradeoff":"When might exploring an unusual possibility interest you?","highTradeoff":"How do you choose a possibility to develop or test?","prompt":"Where does speculation help you, and where does it become a detour?"},
     decisiveness: {"low":"You report taking time to gather information and compare alternatives before routine choices.","middle":"Your answers average near the midpoint on this scale. The score alone does not explain why.","high":"You report committing readily when making routine, everyday choices.","lowTradeoff":"When does more comparison help an everyday choice, and when does it add little?","highTradeoff":"When would you want to slow down before committing?","prompt":"How does your pace change between an everyday choice and an important decision?"},
     emotionalSteadiness: {"low":"You may feel setbacks or tense interactions strongly and need time to recover.","middle":"Your answers average near the midpoint on this scale. The score alone does not explain why.","high":"You may generally keep your balance and recover after pressure or criticism.","lowTradeoff":"What helps you recover after a setback?","highTradeoff":"How do you recognise feelings that deserve attention even when you feel composed?","prompt":"What helps you regain your footing after a difficult interaction?"}
+  },
+  deeperReadings: {
+    socialEnergy: {
+      low: "This end of the scale combines a preference for solo time with wanting quiet after company. It says little about how much you like particular people, or how confidently you speak when you are with them. A lively evening and a restorative evening need not look the same.",
+      middle: "The average can hide different pulls: enjoying company, needing time alone afterward, or simply choosing the middle response. Your six answers show which statements contributed; the number alone cannot distinguish them.",
+      high: "This end combines seeking company with feeling energised by lively interaction. Those experiences need not match in every setting: a small conversation and a crowded party can land differently. The score describes your answers about social appetite, not your social skill."
+    },
+    socialBoldness: {
+      low: "The questions focus on making the first move and speaking early when the group is unfamiliar. Hanging back can mean discomfort, or a deliberate choice to observe before entering. This scale records that pattern of answers without deciding which motive applies.",
+      middle: "An average here could reflect moderate answers throughout or different reactions to introducing yourself, offering an opinion, and drawing attention. The six statements make those distinctions more visible than the score.",
+      high: "The common thread is readiness to enter a new social setting out loud: introducing yourself, asking, or contributing early. That is separate from wanting a large social calendar or trying to control the group's decision. Ease speaking up also says little about how well a contribution lands."
+    },
+    influence: {
+      low: "This scale asks whether you want to shape a shared outcome after making your view known. A lower score can sit alongside strong opinions or social confidence; it only suggests less inclination to keep steering. The questionnaire cannot tell whether you step back out of trust, disinterest, or something else.",
+      middle: "The average could come from mixed answers about advocating, guiding discussion, and leaving decisions to others. Check the six statements before turning this into a story about when you take charge.",
+      high: "The theme is wanting a say in where a group lands, from advocating an option to helping choose the destination. It does not measure whether others agree or whether your preferred outcome is best. The interesting conversation is how you handle a group that wants a different direction."
+    },
+    cooperativeness: {
+      low: "The questions concern ordinary preference conflicts in shared plans. Holding your preferred option is different from being unkind, and the score does not judge whether a particular compromise would be fair. Think about the kinds of preferences you would readily trade and the ones you would not.",
+      middle: "A midpoint could conceal opposite answers to yielding your preference, seeking middle ground, and adapting how you work with someone. Inspect those items before calling the pattern flexible or consistent.",
+      high: "This end is about making room for another person's preferences in a shared plan. That can keep coordination moving, but the items do not reveal whether the agreement was fair to you or whether a deeper disagreement remained. The score describes willingness, not an obligation to yield."
+    },
+    empathicAttention: {
+      low: "These statements ask how much attention you give to tone, expression, reactions, and possible feelings while talking. A lower score does not establish that you miss cues or care less; those are different questions. Explicit words may still be the clearest way to understand someone.",
+      middle: "The items cover several ways of attending to emotion, from tone and expression to thinking about feelings. A middle average cannot reveal which of those received your attention. Open the answers to see the pattern.",
+      high: "You report paying attention to more than the literal words in a conversation. That can give you more to ask about, but a cue is not a verified account of another person's feelings. The useful next move may be checking your impression with them."
+    },
+    structure: {
+      low: "This end favours starting without much advance arrangement and relying less on plans or tracking systems. That describes a working preference, not whether deadlines are met. A task with many dependencies may call for a different amount of structure than a small familiar one.",
+      middle: "Planning a sequence, tracking commitments, and starting complex work without an outline are related but distinct. Their answers can offset one another. Look at the six items to see what the average compresses.",
+      high: "The scale brings together planning, settling details, and keeping a system for commitments. A high score says those approaches appeal to you; it does not prove that every plan gets executed. The interesting boundary is where organising makes starting easier, or begins to replace starting."
+    },
+    persistence: {
+      low: "The questions cover effort when a task becomes repetitive, progress is slow, or an attempt fails. A lower score does not tell us whether you were wisely changing goals or struggling to continue one you still wanted. Those two stories deserve different conversations.",
+      middle: "The score averages responses about boredom, setbacks, repeated practice, and long projects. Those demands can pull in different directions; a midpoint is not evidence of an ideal balance between perseverance and pivoting.",
+      high: "This end describes staying with work after the novelty fades and through slow progress. It says nothing about whether a goal still deserves the effort. A determined person can also decide to stop when the evidence or priorities change."
+    },
+    adaptability: {
+      low: "The items ask how quickly you settle into a changed plan or method and regain momentum. Feeling annoyed about the disruption is a separate matter. You may still adjust successfully after taking time to reset; the score does not assess the outcome.",
+      middle: "Changes to plans, routines, and methods can elicit different answers. The average cannot identify which kind of change costs you momentum. The six responses are more informative than a general label.",
+      high: "The common thread is getting going with a revised plan or method when circumstances change. That does not mean liking the disruption, changing direction constantly, or abandoning useful habits. It describes the reported adjustment, not whether the new plan was good."
+    },
+    analyticalCuriosity: {
+      low: "These items ask whether you want to inspect assumptions, mechanisms, and evidence once an explanation seems usable. Less interest in doing that for its own sake is not a reasoning deficit. Time pressure and the stakes of a claim can make a closer look more or less worthwhile.",
+      middle: "The questions range from examining evidence to investigating how systems work. An average can mix strong interest in one form of inquiry with less interest in another. It cannot tell us when your curiosity switches on.",
+      high: "The scale is about enjoying the work of looking under an explanation: what it assumes, what evidence fits, and what else could account for it. It is an interest, not a test of being right. A satisfying discussion might be about which questions deserve a deeper dive."
+    },
+    imagination: {
+      low: "The items ask about pleasure in hypothetical scenarios, unusual combinations, and speculative ideas. A lower score points toward a more concrete focus in these questions; it does not measure whether you create good solutions or can picture things vividly.",
+      middle: "The statements mix spontaneous alternatives, hypothetical talk, and enjoyment of combining ideas. Their answers may differ even when the average sits near the centre. The number cannot resolve those distinct interests.",
+      high: "This end reflects enjoyment of possibilities before their practical value is clear. An unusual connection can be fun to explore without having to become a plan. The scale does not assess whether the idea is original or useful once tested."
+    },
+    decisiveness: {
+      low: "This scale is deliberately limited to routine choices. A slower pace can involve comparing workable alternatives or looking for one more piece of information; the items do not reveal why you wait. It should not be carried over to important decisions without asking about those separately.",
+      middle: "The items all concern everyday commitment pace, but an average still cannot tell whether each choice felt easy or whether some answers pulled against others. Inspect the six responses before naming a personal rule.",
+      high: "The questions point to moving from options to commitment fairly quickly in everyday matters. That is a pace, not a verdict on judgment or the quality of the choice. There may be occasions when further comparison is valuable even if you usually move on readily."
+    },
+    emotionalSteadiness: {
+      low: "The items bring together frustration, reactions to criticism, rumination, and recovery after pressure. Feeling one of those strongly does not imply all of them follow the same pattern. A difficult situation can also matter for good reasons; this is not a mental-health assessment.",
+      middle: "The score averages several kinds of reaction, including recovery after setbacks and thoughts that linger after tension. A midpoint can hide meaningful differences between them. The six answers are the place to start.",
+      high: "This end reflects reported composure and recovery across everyday setbacks. It does not require an absence of feeling, or show how you would react to a major event. A person can appear steady while still needing time and support afterward."
+    }
   },
   items: [
     {"id":1,"trait":"socialEnergy","reverse":false,"text":"After a long stretch with people, I often still have energy for more conversation."},

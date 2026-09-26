@@ -30,6 +30,9 @@ test('model has 72 distinct items and complete, balanced scales', () => {
     for (const field of ['low', 'middle', 'high', 'lowTradeoff', 'highTradeoff', 'prompt']) {
       assert.ok(model.interpretations[key][field].trim(), `${key}: ${field}`);
     }
+    for (const rangeName of ['low', 'middle', 'high']) {
+      assert.ok(model.deeperReadings[key][rangeName].trim(), `${key}: fuller ${rangeName} reading`);
+    }
   }
 });
 

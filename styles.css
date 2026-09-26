@@ -68,4 +68,12 @@ h1,h2,h3 { line-height:1.08; letter-spacing:-.03em; } h1 { max-width:800px; marg
 .answer-review p { margin:0 0 3px; }
 .answer-review strong { color:var(--muted); font-size:.9rem; }
 .manual-summary { width:100%; margin-top:12px; padding:14px; border:1px solid var(--border); border-radius:12px; background:var(--panel); color:var(--text); font:inherit; }
+.closer-read { margin-top:14px; border-top:1px solid var(--border); padding-top:8px; }
+.closer-read summary { cursor:pointer; width:fit-content; padding:5px 0; color:var(--accent); font-weight:760; }
+.closer-read p { max-width:68ch; }
+.closer-read .reflection { color:var(--muted); }
+.closer-read .evidence-lead { margin-top:18px; font-weight:760; }
+.answer-highlights { margin:5px 0 0; padding-left:22px; }
+.answer-highlights li { padding:4px 0; }
+.closer-read .evidence-note { color:var(--muted); font-size:.88rem; }
 @media (forced-colors:active) { .likert-option input:checked + .likert-number { outline:3px solid Highlight; } }

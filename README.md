@@ -34,6 +34,10 @@ Run `node --test tests/*.test.cjs` with Node.js 18 or newer. The suite checks al
 
 The academic review’s wording and interpretation proposals are now applied. Twenty-three statements were revised, including all six Decision Pace items and all six Emotional Attention items. Decisiveness is now Decision Pace, limited to routine choices; Adaptability concerns adjustment rather than irritation; Emotional Attention concerns attention rather than detection accuracy. All midpoint readings avoid inferring contextual flexibility. Former tradeoff statements are reflection questions, and results explain the 25 attainable scores. Six items per scale, balanced keying, and scoring arithmetic are unchanged. The revised items remain untested with respondents.
 
+## Result copy version 0.3.1
+
+Each theme now offers an optional fuller reading, written separately for low, middle, and high outcomes. It gives more conversational context while respecting what the items can actually support. The expanded reading shows two illustrative non-neutral answers that moved the score and links to the complete six-answer review. Uniform-answer patterns retain their special explanation instead of receiving a directional story. The copy and presentation changed; item wording and scoring did not.
+
 ### Earlier version 0.2.0
 
 The labels “Willingness to Compromise” and “Emotional Attention” narrow the former Cooperativeness and Empathic Attention labels to the content being asked about. Influence describes a wish to steer, not persuasive ability; Analytical Curiosity and Imagination describe interests rather than tested abilities. Several items were revised to reduce construct overlap and loaded wording. Scores from older question sets should not be treated as directly comparable.
