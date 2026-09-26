@@ -6,7 +6,7 @@ Reviewed 25 September 2026. Questionnaire **0.2.0**, repository commit `5dfc3bf3
 
 The earlier `QA.md` documents editorial and software checks. It was **not** a literature-based academic review. This document adds a structured review of the current 12 constructs, all 72 items, the score calculation, and the interpretations, informed by six research publications listed below.
 
-This is an AI-assisted content and design audit, not independent academic peer review, a systematic literature review, an expert-panel content-validity study, or empirical validation. The item judgments and proposed rewrites below are my assessments of this particular questionnaire; the cited researchers did not study or endorse it. Candidate rewrites are proposals, not items already installed in the live test.
+This is an AI-assisted content and design audit, not independent academic peer review, a systematic literature review, an expert-panel content-validity study, or empirical validation. The item judgments and proposed rewrites below are my assessments of this particular questionnaire; the cited researchers did not study or endorse it. At the time of this audit, candidate rewrites were proposals. The implementation addendum below records the subsequent version 0.3.0 changes; the original audit remains a record of version 0.2.0.
 
 **Overall judgment:** the questionnaire is a plausible, openly experimental conversation game. Several scales have reasonably coherent content. It is not yet a well-developed psychological measure awaiting only a final validation stamp: some definitions and items still need refinement. Familiar trait names and correct arithmetic do not establish what the resulting scores measure.
 
@@ -168,3 +168,19 @@ If a more scientific hobby project is later desired, freeze a version, obtain in
 ## Practical conclusion
 
 I would use this version for curiosity and conversation with friends. I would describe it as **an original, literature-informed personality game with untested scales**. I would not call it academically validated, academically approved, or equivalent to an established inventory. The clearest remaining improvements are narrower definitions and less leading items, especially in Decisiveness and Adaptability—not more elaborate scoring or more confident result prose.
+
+## Implementation addendum — 26 September 2026, version 0.3.0
+
+The wording and interpretation proposals have been applied at the user's request. This is an editorial implementation, not new empirical evidence. The audit table above refers to the previous wording.
+
+- **Decision Pace:** renamed from Decisiveness and defined as commitment pace in routine choices. Revised all six items (12, 24, 36, 48, 60, 72) to remove important-choice stakes, post-choice doubt, and loaded contrasts with indefinite delay.
+- **Adaptability:** defined as getting going with revised plans or methods. Revised 10, 22, and 70 to remove problem-solving enjoyment, irritation, and repeated disruption as substitutes for adjustment.
+- **Emotional Attention:** defined as reported attention to cues and feelings, without inferring accuracy. Revised all six items (11, 23, 35, 47, 59, 71); explicit words are no longer framed as incompatible with attending to emotions.
+- **Influence:** revised 9, 33, and 57 toward the wish to advocate or steer, rather than success, confidence, or rescuing a drifting discussion.
+- **Other wording:** revised 16 and 40 to specify ordinary preference compromise; 18 and 66 to remove “too long” and the already-working-method comparison; 55 to specify speaking in an unfamiliar group.
+- **Interpretation:** all middle-range readings describe the answer average without assigning a reason. Former tradeoff claims are questions labelled “Reflection, not a measured finding.” Endpoint prose follows the narrower definitions. Social Energy's description explicitly includes company preference and recovery.
+- **Precision and versions:** results explain 25 attainable scores, approximately 4.17 points per raw response step, arbitrary label boundaries, and non-comparability across versions. Display groups are identified as page organisation, not established factors. Copied summaries carry the version and score caveats.
+
+All six candidate sentences in the original proposal table were adopted. In total, 23 of 72 statements changed. IDs and internal scale keys remain stable for code maintenance; this does not imply score equivalence with older versions. Six items per scale, three reverse-keyed items, equal weights, and score arithmetic are unchanged.
+
+**Remaining work requiring participants:** the Probe judgments that are not resolved by these changes still call for paraphrase interviews, examples, and checks of interpretation. Similar wording within some scales may limit coverage. The revised set has not undergone respondent comprehension testing, reliability estimation, or factor analysis. An optional unscored “cannot judge” response remains a future design choice requiring a missing-data rule, not a neutral response silently added here.

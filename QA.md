@@ -38,3 +38,9 @@ This first review did not include a dedicated academic literature review. A subs
 - The three result ranges are arbitrary writing aids. A one-step answer change moves a trait about four points, so small differences and changes between questionnaire versions should not be overinterpreted.
 
 Run the automated checks with `node --test tests/*.test.cjs`.
+
+## Version 0.3.0 implementation check — 26 September 2026
+
+Applied the academic review's six candidate rewrites and related construct/interpretation changes: 23 items revised in total. See the implementation addendum in ACADEMIC_REVIEW.md for exact item IDs and scope. Checked each revised item's scoring direction against its narrowed definition; all scales retain six items and three reversed items.
+
+The existing 14 automated checks pass, including all 15,625 six-response combinations, reversal direction for every item, midpoint/uniform-answer handling, endpoint readings, summary versioning, and clipboard outcomes. JavaScript syntax checks pass. Version and asset URLs are updated to 0.3.0. These checks verify implementation, not the psychological quality of the revised questions. No new respondent study or full browser/accessibility pass was performed for this wording update.

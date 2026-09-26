@@ -12,7 +12,7 @@ The site contains 72 original Likert-style statements scored across 12 traits. I
 - Each trait is scored from the mean item response and linearly rescaled to 0–100
 - 50 is the midpoint of the response scale; it is **not** a population average or percentile
 - Result ranges (below 40, 40–60, above 60) are arbitrary editorial aids, not validated cutoffs
-- The prose describes possible tendencies and tradeoffs, and offers conversation prompts; no score indicates a better personality
+- The prose describes answer directions and offers explicitly unmeasured reflection prompts; no score indicates a better personality
 - Neutral and identical responses are described explicitly instead of being treated as evidence of a balanced personality
 - Results include each scale's six original answers and a way to edit them
 - No ranking across traits: identical numbers on different scales do not have an established common meaning
@@ -30,7 +30,11 @@ Answers exist only in memory in the current tab and are cleared on reload. Copyi
 
 Run `node --test tests/*.test.cjs` with Node.js 18 or newer. The suite checks all 15,625 answer combinations for one six-item scale, both score endpoints, reversal direction for every item, isolated trait changes, range boundaries, incomplete input, uniform answers, item-order independence, result wording, and clipboard success/failure handling. These are software checks, not psychometric validation. The Pages workflow runs the tests and JavaScript syntax checks before deployment. See [QA.md](QA.md) for the review findings and testing limits.
 
-## Questionnaire version 0.2.0
+## Questionnaire version 0.3.0
+
+The academic review’s wording and interpretation proposals are now applied. Twenty-three statements were revised, including all six Decision Pace items and all six Emotional Attention items. Decisiveness is now Decision Pace, limited to routine choices; Adaptability concerns adjustment rather than irritation; Emotional Attention concerns attention rather than detection accuracy. All midpoint readings avoid inferring contextual flexibility. Former tradeoff statements are reflection questions, and results explain the 25 attainable scores. Six items per scale, balanced keying, and scoring arithmetic are unchanged. The revised items remain untested with respondents.
+
+### Earlier version 0.2.0
 
 The labels “Willingness to Compromise” and “Emotional Attention” narrow the former Cooperativeness and Empathic Attention labels to the content being asked about. Influence describes a wish to steer, not persuasive ability; Analytical Curiosity and Imagination describe interests rather than tested abilities. Several items were revised to reduce construct overlap and loaded wording. Scores from older question sets should not be treated as directly comparable.
 
@@ -40,6 +44,6 @@ The workflow in `.github/workflows/pages.yml` deploys the repository as a static
 
 ## Conceptual notes
 
-See [ACADEMIC_REVIEW.md](ACADEMIC_REVIEW.md) for a sourced, item-by-item design audit. It distinguishes conceptual plausibility from empirical evidence and records proposed improvements that have not yet been applied to the live questions.
+See [ACADEMIC_REVIEW.md](ACADEMIC_REVIEW.md) for a sourced, item-by-item design audit. It distinguishes conceptual plausibility from empirical evidence and records the audit of version 0.2.0 and an implementation addendum for version 0.3.0.
 
 The 12 scales are narrow, informal themes rather than a claim of 12 independent psychological factors. Some constructs can overlap (for example social boldness and influence); no factor analysis or item calibration has been performed. Items are mixed across pages, with three reverse-keyed items per trait. Reverse wording is not a lie detector or a guarantee against response bias. Agreeing with statements is not evidence that the words capture a stable trait. Context, mood, wording, and response habits can affect scores. Avoid using these results for consequential decisions.

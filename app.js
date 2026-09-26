@@ -116,7 +116,7 @@
     if (pattern.sameResponse) return { heading: 'Same response to all six statements', reading: `You chose “${model.responseScale.find(option => option.value === pattern.response).label}” for every statement on this scale. Half of the statements score in the opposite direction, so their contributions cancel out.`, noteLabel: 'Reading this score', tradeoff: 'The resulting midpoint does not establish balance. Review your answers below and consider whether the wording or different situations shaped them.' };
     const range = scoring.range(score);
     if (range === 'middle') return { heading: 'Near the scale midpoint', reading: interpretation.middle, noteLabel: 'Reading this score', tradeoff: 'Your answers show no clear overall lean toward either end. A middle score can come from middle choices, opposing answers, or different situations; it does not identify which explanation fits you.' };
-    return { heading: trait[range], reading: interpretation[range], noteLabel: 'A possible tradeoff', tradeoff: interpretation[`${range}Tradeoff`] };
+    return { heading: trait[range], reading: interpretation[range], noteLabel: 'Reflection, not a measured finding', tradeoff: interpretation[`${range}Tradeoff`] };
   }
 
   function renderResults(scores) {
@@ -134,7 +134,7 @@
           : 'All twelve scores fall near their scale midpoints. Review the individual answers before deciding what those midpoints mean.';
     profileSummary.innerHTML = `
       <div><span>Directions in your answers</span><p>${summary}</p></div>
-      <div><span>Use the details</span><p>Each scale has its own meaning. Scores are not directly comparable across traits, and small differences are easy to overread. Open “Your six answers” to see what sits behind a score.</p></div>
+      <div><span>Use the details</span><p>Each scale has its own meaning and only 25 possible scores. Scores are not directly comparable across traits; small differences and changes in descriptive labels are easy to overread. Open “Your six answers” to see what sits behind a score.</p></div>
     `;
 
     const groups = ['People', 'Execution', 'Thinking', 'Temperament'];
@@ -201,7 +201,7 @@
     const lines = [
       `My Unvalidated Personality Test results (version ${model.version})`,
       '— definitely not normed, validated, or diagnostic —',
-      '0–100 scores describe these items, not percentiles. Scales are not directly comparable.',
+      '0–100 scores describe these items, not percentiles. Each scale has 25 possible scores. Scales and questionnaire versions are not directly comparable. Labels use editorial cutoffs.',
       ''
     ];
     Object.entries(model.traits).forEach(([key, trait]) => {
