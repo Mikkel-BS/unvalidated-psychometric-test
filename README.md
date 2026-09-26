@@ -40,4 +40,6 @@ The workflow in `.github/workflows/pages.yml` deploys the repository as a static
 
 ## Conceptual notes
 
+See [ACADEMIC_REVIEW.md](ACADEMIC_REVIEW.md) for a sourced, item-by-item design audit. It distinguishes conceptual plausibility from empirical evidence and records proposed improvements that have not yet been applied to the live questions.
+
 The 12 scales are narrow, informal themes rather than a claim of 12 independent psychological factors. Some constructs can overlap (for example social boldness and influence); no factor analysis or item calibration has been performed. Items are mixed across pages, with three reverse-keyed items per trait. Reverse wording is not a lie detector or a guarantee against response bias. Agreeing with statements is not evidence that the words capture a stable trait. Context, mood, wording, and response habits can affect scores. Avoid using these results for consequential decisions.

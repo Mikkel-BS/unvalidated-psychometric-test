@@ -2,6 +2,8 @@
 
 Scope: questionnaire version 0.2.0. This is an editorial and software review, not psychometric validation.
 
+This first review did not include a dedicated academic literature review. A subsequent [literature-informed design review](ACADEMIC_REVIEW.md) covers all 72 items, construct boundaries, research sources, scoring assumptions, and interpretation limits.
+
 ## Findings fixed
 
 | Finding | Resolution |
